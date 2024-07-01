@@ -7,11 +7,11 @@ var invtaxestag = document.getElementById('taxes')
 var invfinamounttag = document.getElementById('finalamount')
 var invoicetag = document.getElementById('invoice');
 
-fetch("http://localhost:9021/RestuarantBilling/apis/customer")
+fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/customer")
         .then((response) => response.json())
         .then((data) => {
           var custid = data.length;
-          url="http://localhost:9021/RestuarantBilling/apis/customer/"+custid
+          url="https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/customer/"+custid
           fetch(url)
         .then((response) => response.json())
         .then((data) => {
@@ -21,11 +21,11 @@ fetch("http://localhost:9021/RestuarantBilling/apis/customer")
         })
 
         var invid;
-fetch("http://localhost:9021/RestuarantBilling/apis/invoice")
+fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoice")
         .then((response) => response.json())
         .then((data) => {
              invid = data.length;
-            url="http://localhost:9021/RestuarantBilling/apis/invoice/"+invid;
+            url="https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoice/"+invid;
             fetch(url)
         .then((res) => res.json())
         .then((info) => {
@@ -34,8 +34,8 @@ fetch("http://localhost:9021/RestuarantBilling/apis/invoice")
         })
     });
 
-          url="http://localhost:9021/RestuarantBilling/apis/invoice/"+invid;
-//        url="http://localhost:9021/RestuarantBilling/apis/invoice/2";
+          url="https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoice/"+invid;
+//        url="https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoice/2";
                 fetch(url)
             .then((res) => res.json())
             .then((info) => {
@@ -47,7 +47,7 @@ fetch("http://localhost:9021/RestuarantBilling/apis/invoice")
 
 
     var invItems = document.getElementById("invoice_items") 
-    fetch("http://localhost:9021/RestuarantBilling/apis/invoice")
+    fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoice")
         .then((response) => response.json())
         .then((json) => {
             {
@@ -73,7 +73,7 @@ fetch("http://localhost:9021/RestuarantBilling/apis/invoice")
             const foodcell = invItems.rows[i].cells[2];
 //            const invid = Number(invItems.rows[i].cells[0].innerHTML)
             const invid = 2
-            fetch("http://localhost:9021/RestuarantBilling/apis/invoiceItem")
+            fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoiceItem")
             .then((response) => response.json())
             .then((json) => {
                 {
@@ -83,7 +83,7 @@ fetch("http://localhost:9021/RestuarantBilling/apis/invoice")
                         if(invoiceItem.invoice_id == invid){
                            var quantity = invoiceItem.quantity;
                            var menuid = invoiceItem.menu_id;
-                           fetch("http://localhost:9021/RestuarantBilling/apis/menu")
+                           fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/menu")
                             .then((response) => response.json())
                             .then((json) => {
                             {
@@ -96,7 +96,7 @@ fetch("http://localhost:9021/RestuarantBilling/apis/invoice")
                             }
                             foodcell.innerHTML = li;
                             invtotaltag.innerHTML = total+`<i class="fa fa-rupee" style="margin-left:8%" aria-hidden="true"></i>`; 
-                            fetch("http://localhost:9021/RestuarantBilling/apis/taxes/1")
+                            fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/taxes/1")
                             .then((response) => response.json())
                             .then((data) => {
                                 var totaltax = 0;

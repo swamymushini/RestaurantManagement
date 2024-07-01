@@ -25,7 +25,7 @@ validatecustomer();
 var foodnames=[];
 var foodids=[];
 function validatecustomer(){
-    fetch("http://localhost:9021/RestuarantBilling/apis/invoice")
+    fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoice")
         .then((response) => response.json())
         .then((json) => {
             {
@@ -42,7 +42,7 @@ function validatecustomer(){
         })
     }
 function customername(custid){
-    var url ="http://localhost:9021/RestuarantBilling/apis/customer/"+custid;
+    var url ="https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/customer/"+custid;
     fetch(url)
         .then((response) => response.json())
         .then((json) => {
@@ -51,7 +51,7 @@ function customername(custid){
     }
 
 function showorders(invid){
-    fetch("http://localhost:9021/RestuarantBilling/apis/invoiceItem")
+    fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoiceItem")
         .then((response) => response.json())
         .then((json) => {
             {
@@ -59,7 +59,7 @@ function showorders(invid){
                 json.forEach((invoiceItem) => {
                     if(invid == invoiceItem.invoice_id){
                         var menu_id=invoiceItem.menu_id;
-                        var url ="http://localhost:9021/RestuarantBilling/apis/menu/"+menu_id;
+                        var url ="https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/menu/"+menu_id;
                         fetch(url)
                             .then((response) => response.json())
                             .then((json) => {
@@ -88,7 +88,7 @@ function submitrating(){
           })
     }
     else{
-        fetch("http://localhost:9021/RestuarantBilling/apis/invoice")
+        fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoice")
         .then((response) => response.json())
         .then((json) => {
             {
@@ -114,7 +114,7 @@ function submitrating(){
 }
 }
 function updatedishratingobject(invid,menuid,rating){
-    var url = "http://localhost:9021/RestuarantBilling/apis/avgRating/"+menuid;
+    var url = "https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/avgRating/"+menuid;
     fetch(url)
     .then((response) => response.json())
     .then((json) =>{
@@ -128,7 +128,7 @@ function updatedishratingobject(invid,menuid,rating){
 })
 }
 function updatedishrating(updatemenuratingObject){
-    fetch("http://localhost:9021/RestuarantBilling/apis/avgRating/update", {
+    fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/avgRating/update", {
              method: 'PUT',
              body: JSON.stringify(updatemenuratingObject),
              headers: {
@@ -137,12 +137,12 @@ function updatedishrating(updatemenuratingObject){
       })
 }
  function reviewsubmit(submitratingObject){
-     fetch("http://localhost:9021/RestuarantBilling/apis/userReview/create", {
+     fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/userReview/create", {
              method: 'POST',
              body: JSON.stringify(submitratingObject),
              headers: {
                "Content-type": "application/json; charset=UTF-8"
              }
        })
-    window.location.href="http://localhost:9021/RestuarantBilling/thankyou";
+    window.location.href="https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/thankyou";
    }

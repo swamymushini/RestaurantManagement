@@ -18,7 +18,7 @@ const TotalAmount = []
 const data = new Map();
 const dishnames =[];
 
-fetch("http://localhost:9021/RestuarantBilling/apis/invoiceItem")
+fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoiceItem")
         .then((response) => response.json())
         .then((json) => {
             {
@@ -64,7 +64,7 @@ async function getdishname(){
     for(var i=0;i<menuid.length;i++){
         const menuidcol = i;
         var menu_id = menuid[i];
-        url = "http://localhost:9021/RestuarantBilling/apis/menu/"+menu_id
+        url = "https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/menu/"+menu_id
         await fetch(url)
         .then((response) => response.json())
         .then((json) => {

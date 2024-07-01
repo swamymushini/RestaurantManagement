@@ -35,7 +35,7 @@ const style = document.createElement('style');
     `;
 document.head.appendChild(style);
 var prevOrders = document.getElementById("prevorders") 
-fetch("http://localhost:9021/RestuarantBilling/apis/invoice")
+fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoice")
     .then((response) => response.json())
     .then((json) => {
         {
@@ -60,7 +60,7 @@ function filltable(){
     for(var i=0;i<prevOrders.rows.length;i++){
         const custnamecell = prevOrders.rows[i].cells[3];
         var custid = Number(prevOrders.rows[i].cells[2].innerHTML)
-        url = "http://localhost:9021/RestuarantBilling/apis/customer/"+custid
+        url = "https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/customer/"+custid
         fetch(url)
         .then((response) => response.json())
         .then((json) => {
@@ -72,7 +72,7 @@ function filltable(){
         const foodcell = prevOrders.rows[i].cells[4];
         const invid = Number(prevOrders.rows[i].cells[0].innerHTML)
         const totalcell = prevOrders.rows[i].cells[5];
-        fetch("http://localhost:9021/RestuarantBilling/apis/invoiceItem")
+        fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoiceItem")
         .then((response) => response.json())
         .then((json) => {
             {
@@ -84,7 +84,7 @@ function filltable(){
                     if(invoiceItem.invoice_id == invid){
                        var quantity = invoiceItem.quantity;
                        var menuid = invoiceItem.menu_id;
-                       fetch("http://localhost:9021/RestuarantBilling/apis/menu")
+                       fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/menu")
                         .then((response) => response.json())
                         .then((json) => {
                         {

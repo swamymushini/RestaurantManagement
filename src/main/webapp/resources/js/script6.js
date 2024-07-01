@@ -83,7 +83,7 @@ document.head.appendChild(style);
 
 // Main table
 function loadTable() {
-  fetch("http://localhost:9021/RestuarantBilling/apis/menu")
+  fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/menu")
   .then((response) => response.json())
   .then((json) => {
           let li1="";
@@ -250,7 +250,7 @@ function DishCreate() {
     price : price,
     image_path:image_path
   };
-  fetch('http://localhost:9021/RestuarantBilling/apis/menu/create', {
+  fetch('https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/menu/create', {
           method: 'POST',
           body: JSON.stringify(menuObject),
           headers: {
@@ -288,7 +288,7 @@ $(document).ready(function(){
   $("#mytable").on('click','#available',function(){
     var currentRowToToggle =$(this).closest("tr");
     var idToToggle =currentRowToToggle.find("td:eq(0)").text();
-    var url = "http://localhost:9021/RestuarantBilling/apis/menu/"+idToToggle
+    var url = "https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/menu/"+idToToggle
     fetch(url)
     .then((response) => response.json())
     .then((json) =>{
@@ -307,7 +307,7 @@ $(document).ready(function(){
   $("#mytable").on('click','#del',function(){
     var currentRowToDelete =$(this).closest("tr");
     var idToDelete =currentRowToDelete.find("td:eq(0)").text();
-    var url = "http://localhost:9021/RestuarantBilling/apis/menu/"
+    var url = "https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/menu/"
     var urlToDelete = url+idToDelete
     fetch(urlToDelete, {
           method: 'DELETE',
@@ -323,7 +323,7 @@ $(document).ready(function(){
   $("#mytable").on('click','#edit',function(){
     var currentRowToEdit =$(this).closest("tr");
     var idToUpdate =currentRowToEdit.find("td:eq(0)").text();
-    var url = "http://localhost:9021/RestuarantBilling/apis/menu/"+idToUpdate
+    var url = "https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/menu/"+idToUpdate
     fetch(url)
     .then((response) => response.json())
     .then((json) =>{
@@ -368,7 +368,7 @@ $(document).ready(function(){
 
 
 function dishEdit(updateObject){
-  var updateUrl = "http://localhost:9021/RestuarantBilling/apis/menu/update/"
+  var updateUrl = "https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/menu/update/"
   fetch(updateUrl, {
           method: 'PUT',
           body: JSON.stringify(updateObject),
@@ -384,7 +384,7 @@ function dishEdit(updateObject){
 
 
 function showEditTaxesBox(){
-  var url = "http://localhost:9021/RestuarantBilling/apis/taxes/1"
+  var url = "https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/taxes/1"
     fetch(url)
     .then((response) => response.json())
     .then((json) =>{
@@ -419,7 +419,7 @@ function showEditTaxesBox(){
   })
 }
 function taxEdit(updatetaxObject){
-  fetch("http://localhost:9021/RestuarantBilling/apis/taxes/update", {
+  fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/taxes/update", {
           method: 'PUT',
           body: JSON.stringify(updatetaxObject),
           headers: {
@@ -456,7 +456,7 @@ function CategoryCreate() {
   const categoryObject = {
     food_type_name:categoryname
   };
-  fetch('http://localhost:9021/RestuarantBilling/apis/foodType/create', {
+  fetch('https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/foodType/create', {
     method: 'POST',
     body: JSON.stringify(categoryObject),
     headers: {

@@ -102,7 +102,7 @@ const style = document.createElement('style');
     `;
     document.head.appendChild(style);
     function loadTable(){
-        fetch("http://localhost:9021/RestuarantBilling/apis/menu")
+        fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/menu")
           .then((response) => response.json())
           .then((json) => {
             console.log(json);
@@ -231,14 +231,14 @@ const style = document.createElement('style');
           customer_name: customername,
           phone_no: customerphno
         }
-        fetch('http://localhost:9021/RestuarantBilling/apis/customer/create', {
+        fetch('https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/customer/create', {
           method: 'POST',
           body: JSON.stringify(customerObject),
           headers: {
             "Content-type": "application/json; charset=UTF-8"
           }
         })
-        fetch("http://localhost:9021/RestuarantBilling/apis/customer")
+        fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/customer")
         .then((response) => response.json())
         .then((data) => {
           var custid;
@@ -256,7 +256,7 @@ const style = document.createElement('style');
           customer_id: customerid,
           charges_id: 1
         }
-        fetch('http://localhost:9021/RestuarantBilling/apis/invoice/create', {
+        fetch('https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoice/create', {
           method: 'POST',
           body: JSON.stringify(invoiceObject),
           headers: {
@@ -264,7 +264,7 @@ const style = document.createElement('style');
           }
         })
         var orders = document.getElementById("orders");
-        fetch("http://localhost:9021/RestuarantBilling/apis/invoice")
+        fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoice")
         .then((response) => response.json())
         .then((data) => {
           var invid;
@@ -288,7 +288,7 @@ const style = document.createElement('style');
           addinvoiceitem(invoiceItemObject)
         }
       function addinvoiceitem(invoiceItemObject){
-          fetch('http://localhost:9021/RestuarantBilling/apis/invoiceItem/create', {
+          fetch('https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/invoiceItem/create', {
           method: 'POST',
           body: JSON.stringify(invoiceItemObject),
           headers: {
@@ -306,7 +306,7 @@ const style = document.createElement('style');
 })
 function sendsms(orderId){
 var phnototext = document.getElementById('phno').value;
-var msgtosend ="Thanks for Dining with us Hope you enjoyed your meal! Kindly help us to improve by rating your experience below."+"http://localhost:9021/RestuarantBilling/mydetails"+" your Order Id is "+orderId;
+var msgtosend ="Thanks for Dining with us Hope you enjoyed your meal! Kindly help us to improve by rating your experience below."+"https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/mydetails"+" your Order Id is "+orderId;
 var authorizationkey = "Your twilio key"
 var smsurl ="https://www.fast2sms.com/dev/bulkV2?authorization=${authorizationkey}&message="+msgtosend+"&language=english&route=q&numbers="+phnototext;
 var settings = {
@@ -321,7 +321,7 @@ var settings = {
   });
 }
 const batchTrack = document.getElementById("batchSelect");
-fetch("http://localhost:9021/RestuarantBilling/apis/foodType")
+fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/foodType")
     .then((response) => response.json())
     .then((json) => {
        {
@@ -340,7 +340,7 @@ function filter()
  var selectedValue = selecttag.options[selecttag.selectedIndex].value;
  document.getElementById("dishes").innerHTML = "";
  function allcat(){
- fetch("http://localhost:9021/RestuarantBilling/apis/menu")
+ fetch("https://gopal-swamy-sde2-1c9193a94105.herokuapp.com/apis/menu")
         .then((response) => response.json())
         .then((json) => {
             {
